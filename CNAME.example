@@ -1,0 +1,11 @@
+# Example CNAME file for custom domain
+# Remove .example extension and add your domain
+# Example: confirm.sana-app.com
+
+# To use a custom domain:
+# 1. Remove .example from this filename
+# 2. Add your domain name (one per line)
+# 3. Configure DNS settings to point to GitHub Pages
+# 4. Enable HTTPS in GitHub Pages settings
+
+# confirm.sana-app.com

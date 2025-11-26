@@ -1,0 +1,29 @@
+{
+    "name": "sana-confirmation-page",
+    "version": "1.0.0",
+    "description": "Account confirmation page for Sana app",
+    "main": "index.html",
+    "scripts": {
+        "start": "npx serve .",
+        "dev": "npx serve . --port 3000",
+        "build": "echo 'No build step required for static HTML'",
+        "deploy": "echo 'Upload files to GitHub repository and enable Pages'"
+    },
+    "keywords": [
+        "confirmation",
+        "account",
+        "sana",
+        "arabic",
+        "responsive"
+    ],
+    "author": "Sana Team",
+    "license": "UNLICENSED",
+    "devDependencies": {
+        "serve": "^14.2.1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git"
+    },
+    "homepage": "https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/"
+}
