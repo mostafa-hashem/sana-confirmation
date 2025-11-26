@@ -6,6 +6,41 @@ document.addEventListener('DOMContentLoaded', function() {
     const userId = urlParams.get('user_id');
     const email = urlParams.get('email');
 
+    // Try to open app if available
+    function tryOpenApp() {
+        // Check if we have confirmation parameters
+        if (token && userId) {
+            console.log('Attempting to open Sana app...');
+
+            // Create app URL with confirmation data
+            const appUrl = `sana://auth/confirm?token=${encodeURIComponent(token)}&user_id=${encodeURIComponent(userId)}`;
+
+            // Try to open the app
+            const opened = window.open(appUrl, '_self');
+
+            // If app opens, this page will be hidden
+            // If app doesn't open, we'll continue showing this page
+
+            // Fallback: try again after a short delay (in case app needs time to load)
+            setTimeout(() => {
+                if (!opened || opened.closed) {
+                    // App didn't open, continue showing web page
+                    console.log('App not available, showing web confirmation page');
+                    showWebConfirmation();
+                }
+            }, 1000);
+        } else {
+            // No confirmation parameters, just show the page
+            showWebConfirmation();
+        }
+    }
+
+    // Show web confirmation page
+    function showWebConfirmation() {
+        console.log('Showing web confirmation page');
+        // The page content is already visible by default
+    }
+
     // Analytics tracking (if needed)
     function trackEvent(eventName, properties = {}) {
         // Add your analytics code here
@@ -19,6 +54,9 @@ document.addEventListener('DOMContentLoaded', function() {
         email: email ? 'present' : 'missing',
         timestamp: new Date().toISOString()
     });
+
+    // Try to open app immediately
+    tryOpenApp();
 
     // Handle successful confirmation (you can add this logic based on your backend)
     function handleConfirmationSuccess() {
